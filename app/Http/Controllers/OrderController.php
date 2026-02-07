@@ -6,7 +6,9 @@ use App\Models\City;
 use App\Models\Color;
 use App\Models\Order;
 use App\Models\RetakeType;
+use App\Models\Tarif;
 use App\Models\Type;
+use Hash;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -20,6 +22,7 @@ class OrderController extends Controller
         $data['types'] = Type::get();
         $data['colors'] = Color::get();
         $data['retake_types'] = RetakeType::get();
+        $data['tarifs'] = Tarif::get();
         return view('index', $data);
     }
 
@@ -31,7 +34,7 @@ class OrderController extends Controller
 
         Order::create($request->all());
         return back();
-        
+
     }
 
 }
