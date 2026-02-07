@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: database:3306
--- Generation Time: Feb 07, 2026 at 05:04 AM
+-- Generation Time: Feb 07, 2026 at 05:19 AM
 -- Server version: 8.4.7
 -- PHP Version: 8.3.29
 
@@ -155,7 +155,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '0001_01_01_000001_create_cache_table', 1),
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2026_02_07_033846_tables', 1),
-(9, '2026_02_07_044230_fixdb', 2);
+(9, '2026_02_07_044230_fixdb', 2),
+(10, '2026_02_07_051418_dbfix2', 3);
 
 -- --------------------------------------------------------
 
@@ -174,7 +175,8 @@ CREATE TABLE `orders` (
   `color_id` bigint UNSIGNED NOT NULL,
   `retake_type_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL,
-  `tarif_id` bigint UNSIGNED NOT NULL
+  `tarif_id` bigint UNSIGNED NOT NULL,
+  `updated_at` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -228,7 +230,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('plvFLUbhjJxO8amfkzmB34fbubrqmrkUMP5IwNtf', NULL, '172.18.0.1', 'Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoid0xIc1J0OU1YZnRVVzFUcEtzdWRJa2RoSGI3Q1B2UlJESXF6ZEU1RyI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MTY6Imh0dHA6Ly9sb2NhbGhvc3QiO3M6NToicm91dGUiO3M6NDoibWFpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1770439789);
+('tYpQMBUPfhZOvn4vPsAzGMVhksJ3MMhrhwzGYJkn', NULL, '172.18.0.1', 'Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVmRhaW5Iem9henpiV0ZlVWVsOENYVXQ3OVdoZGJWaVBVbktPdzBjdiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly9sb2NhbGhvc3QvbG9naW4iO3M6NToicm91dGUiO3M6NToibG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YToxOntzOjg6ImludGVuZGVkIjtzOjIyOiJodHRwOi8vbG9jYWxob3N0L2FkbWluIjt9fQ==', 1770441516);
 
 -- --------------------------------------------------------
 
@@ -293,7 +295,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'netu', NULL, '$2y$12$1bc/2oBnEmWBdpIxVYL9v.RpUmO5zPYMe/gIC1koW97fU70D4djHm', NULL, NULL, NULL);
+(1, 'admin', 'netu', NULL, '$2y$12$1bc/2oBnEmWBdpIxVYL9v.RpUmO5zPYMe/gIC1koW97fU70D4djHm', 'Rwb2IjOArS8w3YagrCEA4hP6BKtMPXSQG8W1qaQYVA9OJ8jMQtpB3tYG3fm1', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -433,7 +435,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `orders`

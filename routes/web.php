@@ -12,6 +12,6 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/login', [AuthController::class, 'loginHandle'])->name('login_handler');
 
-Route::get('/admin', [AuthController::class, 'cabinet'])->name('admin');
+Route::get('/admin', [AuthController::class, 'cabinet'])->name('cabinet')->middleware('auth');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');

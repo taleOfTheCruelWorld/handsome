@@ -32,6 +32,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
+        
         Order::create($request->all());
         return back();
 
