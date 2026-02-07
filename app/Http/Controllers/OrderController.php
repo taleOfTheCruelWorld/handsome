@@ -32,7 +32,15 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
-        
+        if($request->retake_type_id == 1 && $request->color_id == 1 && $request->type_id == 1){
+            $request['tarif_id'] = 1; 
+        }
+        else if($request->type_id == 3 || $request->city_id != 1){
+             $request['tarif_id'] = 3; 
+        }
+        else{
+             $request['tarif_id'] = 2; 
+        }
         Order::create($request->all());
         return back();
 
